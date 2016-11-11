@@ -25,6 +25,7 @@ import java.util.Set;
 
 import javax.servlet.Filter;
 
+import flex.messaging.services.http.proxy.SecurityFilter;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
@@ -38,6 +39,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.flex.core.ExceptionTranslator;
 import org.springframework.security.web.FilterChainProxy;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -101,7 +103,7 @@ public class SecurityConfigurationPostProcessor implements MergedBeanDefinitionP
 			Set<Filter> allFilters = new HashSet<Filter>(BeanFactoryUtils.beansOfTypeIncludingAncestors(context, Filter.class, false, false).values());
 	        if (this.filterChainProxy != null) {
 	            allFilters.addAll(new FilterChainAccessor(this.filterChainProxy).getFilters());
-	        }    
+	        }
 	        for (Filter filter : allFilters) {
 	        	BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(filter);
 	        	for (PropertyDescriptor pd : bw.getPropertyDescriptors()) {
@@ -156,10 +158,9 @@ public class SecurityConfigurationPostProcessor implements MergedBeanDefinitionP
     	
     	public FilterChainAccessor(FilterChainProxy proxy) {    		
     		this.filters = new LinkedHashSet<Filter>();
-
-            for (List<Filter> filters : proxy.getFilterChainMap().values()) {
-                this.filters.addAll(filters);
-            }
+			for (SecurityFilterChain securityFilterChain : proxy.getFilterChains()) {
+				this.filters.addAll(securityFilterChain.getFilters());
+			}
     	}
     	
     	public Set<Filter> getFilters() {
