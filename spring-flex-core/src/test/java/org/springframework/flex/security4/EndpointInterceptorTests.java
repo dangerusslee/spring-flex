@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import org.junit.After;
 import static org.junit.Assert.assertSame;

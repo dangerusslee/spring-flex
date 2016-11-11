@@ -8,8 +8,8 @@ import org.springframework.aop.support.AopUtils;
 import org.springframework.flex.config.AbstractFlexConfigurationTests;
 import org.springframework.flex.core.ExceptionTranslationAdvice;
 import org.springframework.flex.core.MessageInterceptionAdvice;
-import org.springframework.flex.security3.SecurityConfigurationPostProcessor;
-import org.springframework.flex.security3.SpringSecurityLoginCommand;
+import org.springframework.flex.security4.SecurityConfigurationPostProcessor;
+import org.springframework.flex.security4.SpringSecurityLoginCommand;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.util.ReflectionTestUtils;
 

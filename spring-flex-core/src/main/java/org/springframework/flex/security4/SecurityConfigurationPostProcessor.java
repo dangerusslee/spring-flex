@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.Filter;
 
-import flex.messaging.services.http.proxy.SecurityFilter;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;

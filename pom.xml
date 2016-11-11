@@ -55,6 +55,11 @@
             <organization>Codeoscopic</organization>
             <organizationUrl>http://www.codeoscopic.com</organizationUrl>
         </contributor>
+        <contributor>
+            <name>Phillip Rower</name>
+            <organization>PresidioHealth</organization>
+            <organizationUrl>http://www.presidiohealth.com/</organizationUrl>
+        </contributor>
     </contributors>
 
     <modules>

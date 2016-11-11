@@ -1,5 +1,5 @@
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

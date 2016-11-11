@@ -54,11 +54,9 @@ import org.springframework.flex.core.MessageInterceptionAdvice;
 import org.springframework.flex.core.MessageInterceptor;
 import org.springframework.flex.core.MessageProcessingContext;
 import org.springframework.flex.core.ResourceHandlingMessageInterceptor;
-import org.springframework.flex.core.io.SpringPropertyProxy;
-import org.springframework.flex.core.io.domain.Person;
-import org.springframework.flex.security3.EndpointInterceptor;
-import org.springframework.flex.security3.SecurityConfigurationPostProcessor;
-import org.springframework.flex.security3.SpringSecurityLoginCommand;
+import org.springframework.flex.security4.EndpointInterceptor;
+import org.springframework.flex.security4.SecurityConfigurationPostProcessor;
+import org.springframework.flex.security4.SpringSecurityLoginCommand;
 import org.springframework.flex.servlet.MessageBrokerHandlerAdapter;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.security.access.AccessDecisionManager;
@@ -77,7 +75,6 @@ import flex.messaging.MessageException;
 import flex.messaging.config.ConfigMap;
 import flex.messaging.config.MessagingConfiguration;
 import flex.messaging.endpoints.Endpoint;
-import flex.messaging.io.PropertyProxyRegistry;
 import flex.messaging.messages.Message;
 import flex.messaging.security.LoginCommand;
 import flex.messaging.services.MessageService;
@@ -395,11 +392,11 @@ public class MessageBrokerBeanDefinitionParserTests extends AbstractFlexConfigur
             Object dataServicesConfigProcessor = getDataServicesConfigProcessor("defaultSecured");
             Set<MessageInterceptor> interceptors = getMessageInterceptors(dataServicesConfigProcessor);
 
-            // Should contain org.springframework.flex.security3.PerClientAuthenticationInterceptor and,
-            // org.springframework.flex.security3.LoginMessageInterceptor
+            // Should contain org.springframework.flex.security4.PerClientAuthenticationInterceptor and,
+            // org.springframework.flex.security4.LoginMessageInterceptor
             assertEquals(2, interceptors.size());
 
-            // Should contain org.springframework.flex.security3.SecurityExceptionTranslator
+            // Should contain org.springframework.flex.security4.SecurityExceptionTranslator
             Set<ExceptionTranslator> translators = getExceptionTranslators(dataServicesConfigProcessor);
             assertEquals(1, translators.size());
             assertEquals(SpringSecurityConfigResolver.resolve().getSecurityExceptionTranslatorClassName(),
