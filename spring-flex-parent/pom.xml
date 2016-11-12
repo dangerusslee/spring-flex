@@ -29,6 +29,14 @@
     	<url>https://github.com/spring-projects/spring-flex</url>
     	<connection>https://github.com/spring-projects/spring-flex.git</connection>
     </scm>
+
+
+	<distributionManagement>
+		<repository>
+			<id>myrepos</id>
+			<url>${repos.url}</url>
+		</repository>
+	</distributionManagement>
     
     <developers>
     	<developer>
@@ -286,6 +294,13 @@
 	</dependencyManagement>
 
 	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
 		<pluginManagement>
 			<plugins>
 				<plugin>

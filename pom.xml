@@ -30,7 +30,14 @@
         <url>https://github.com/spring-projects/spring-flex</url>
         <connection>https://github.com/spring-projects/spring-flex.git</connection>
     </scm>
-    
+
+    <distributionManagement>
+        <repository>
+            <id>myrepos</id>
+            <url>${repos.url}</url>
+        </repository>
+    </distributionManagement>
+
     <developers>
     	<developer>
             <name>Jeremy Grelle</name>
@@ -68,6 +75,16 @@
         <module>spring-flex-hibernate3</module>
         <module>spring-flex-hibernate4</module>
     </modules>
+
+    <build>
+    <extensions>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-webdav-jackrabbit</artifactId>
+            <version>2.2</version>
+        </extension>
+    </extensions>
+    </build>
 
     <profiles>
         <profile>
