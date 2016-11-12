@@ -26,10 +26,10 @@ import org.springframework.util.ClassUtils;
  */
 public class SpringSecurityConfigResolver {
 
-    private static final String SECURITY3_CONFIG_HELPER_CLASSNAME = "org.springframework.flex.config.xml.SpringSecurity3ConfigHelper";
+    private static final String SECURITY4_CONFIG_HELPER_CLASSNAME = "org.springframework.flex.config.xml.SpringSecurity4ConfigHelper";
     
     public static SpringSecurityConfigHelper resolve() {
-        return createConfigHelper(SECURITY3_CONFIG_HELPER_CLASSNAME);
+        return createConfigHelper(SECURITY4_CONFIG_HELPER_CLASSNAME);
     }
     
     static SpringSecurityConfigHelper createConfigHelper (String helperClassName) {

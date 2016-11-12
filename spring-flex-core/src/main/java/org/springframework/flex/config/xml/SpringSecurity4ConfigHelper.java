@@ -24,11 +24,11 @@ import org.springframework.security.access.SecurityConfig;
 import org.springframework.util.StringUtils;
 
 /**
- * Implementation of {@link SpringSecurityConfigHelper} that is specific to Spring Security 3 and above.
+ * Implementation of {@link SpringSecurityConfigHelper} that is specific to Spring Security 4 and above.
  *
  * @author Jeremy Grelle
  */
-public class SpringSecurity3ConfigHelper implements SpringSecurityConfigHelper {
+public class SpringSecurity4ConfigHelper implements SpringSecurityConfigHelper {
 
     private static final String LOGIN_COMMAND_CLASS_NAME = "org.springframework.flex.security4.SpringSecurityLoginCommand";
     
