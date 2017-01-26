@@ -16,6 +16,13 @@
 
 package org.springframework.flex.config.xml;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.Principal;
@@ -27,6 +34,7 @@ import java.util.Set;
 
 import javax.servlet.ServletConfig;
 
+import org.junit.Test;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.framework.Advised;
 import org.springframework.aop.support.AopUtils;
@@ -80,8 +88,6 @@ import flex.messaging.security.LoginCommand;
 import flex.messaging.services.MessageService;
 import flex.messaging.services.RemotingService;
 import flex.messaging.services.remoting.adapters.JavaAdapter;
-import static org.junit.Assert.*;
-import org.junit.Test;
 
 @ContextConfiguration(locations="classpath:org/springframework/flex/config/message-broker.xml", loader=MessageBrokerBeanDefinitionParserTests.ParentContextLoader.class)
 public class MessageBrokerBeanDefinitionParserTests extends AbstractFlexConfigurationTests {

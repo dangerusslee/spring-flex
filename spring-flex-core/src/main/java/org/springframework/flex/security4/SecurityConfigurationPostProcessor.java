@@ -156,8 +156,9 @@ public class SecurityConfigurationPostProcessor implements MergedBeanDefinitionP
     	
     	public FilterChainAccessor(FilterChainProxy proxy) {    		
     		this.filters = new LinkedHashSet<Filter>();
-			for (SecurityFilterChain securityFilterChain : proxy.getFilterChains()) {
-				this.filters.addAll(securityFilterChain.getFilters());
+
+            for (SecurityFilterChain filterChain : proxy.getFilterChains()) {
+                this.filters.addAll(filterChain.getFilters());
 			}
     	}
     	

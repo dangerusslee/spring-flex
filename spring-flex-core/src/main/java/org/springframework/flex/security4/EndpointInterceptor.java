@@ -110,7 +110,7 @@ public class EndpointInterceptor extends AbstractSecurityInterceptor implements 
     }
 
 	private void configureDefaultAccessDecisionManager() {
-        List<AccessDecisionVoter<? extends  Object>> voters = new ArrayList<AccessDecisionVoter<? extends Object>>();
+        List<AccessDecisionVoter<? extends Object>> voters = new ArrayList<AccessDecisionVoter<? extends Object>>();
         voters.add(new RoleVoter());
         voters.add(new AuthenticatedVoter());
         AffirmativeBased adm = new AffirmativeBased(voters);

@@ -16,6 +16,11 @@
 
 package org.springframework.flex.security4;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -23,7 +28,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.junit.After;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -87,7 +91,7 @@ public class EndpointSecurityIntegrationTests extends AbstractMessageBrokerTests
 
         List<AccessDecisionVoter<? extends Object>> voters = new ArrayList<AccessDecisionVoter<? extends Object>>();
         voters.add(new RoleVoter());
-        adm = new AffirmativeBased(voters);
+        this.adm = new AffirmativeBased(voters);
 
         initializeInterceptors();
         
