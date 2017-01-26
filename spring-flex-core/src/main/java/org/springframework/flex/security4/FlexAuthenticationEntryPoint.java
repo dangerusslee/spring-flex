@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.io.IOException;
 import java.util.Collections;

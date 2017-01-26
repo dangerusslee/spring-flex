@@ -24,7 +24,7 @@
             Java 6
         </para>
         <para>
-            Spring 4.0
+            Spring 4.3
         </para>
         <para>
             Adobe BlazeDS 4.0
@@ -33,7 +33,7 @@
     <sect1 id="optional-system-requirements">
         <title>Minimum major dependency versions required by optional features</title>
         <para>
-            Spring Security 3.0
+            Spring Security 4.1
         </para>
         <para>
             Spring Integration 2.0

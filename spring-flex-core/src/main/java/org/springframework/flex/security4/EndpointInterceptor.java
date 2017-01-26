@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,11 +110,10 @@ public class EndpointInterceptor extends AbstractSecurityInterceptor implements 
     }
 
 	private void configureDefaultAccessDecisionManager() {
-        AffirmativeBased adm = new AffirmativeBased();
-        List<AccessDecisionVoter> voters = new ArrayList<AccessDecisionVoter>();
+        List<AccessDecisionVoter<? extends  Object>> voters = new ArrayList<AccessDecisionVoter<? extends Object>>();
         voters.add(new RoleVoter());
         voters.add(new AuthenticatedVoter());
-        adm.setDecisionVoters(voters);
+        AffirmativeBased adm = new AffirmativeBased(voters);
         setAccessDecisionManager(adm);
     }
     

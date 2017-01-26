@@ -47,7 +47,7 @@ Bug Fixes
 * FLEX-165 - Concurrent Session Management is not working
 * FLEX-167 - JpaHibernateConfigProcessor complains when multiple EntityManagers present
 * FLEX-169 - PriorityOrderedRequestContextFilter introduced a locale problem
-* FLEX-182 - NoSuchMethodError org.springframework.flex.security3.SecurityConfigurationPostProcessor$FilterChainAccessor.obtainAllDefinedFilters()Ljava/util/Collection
+* FLEX-182 - NoSuchMethodError org.springframework.flex.security4.SecurityConfigurationPostProcessor$FilterChainAccessor.obtainAllDefinedFilters()Ljava/util/Collection
 * FLEX-183 - Wrong Repo in Samples pom.xml
 * FLEX-186 - FlexSession not getting re-created properly when using session-fixation-protection="newSession"
 * FLEX-190 - SpringSecurity3ConfigHelper incompatible with Spring Security 3.1

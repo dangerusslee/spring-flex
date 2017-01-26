@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -37,6 +37,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.NullRememberMeServices;
 import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.session.NullAuthenticatedSessionStrategy;
@@ -73,10 +74,14 @@ public class SpringSecurityLoginCommand implements LoginCommand, InitializingBea
     private SessionAuthenticationStrategy sessionStrategy;
     
     private boolean perClientAuthentication = false;
-    
-    protected AuthenticationDetailsSource authenticationDetailsSource = new WebAuthenticationDetailsSource();
 
-	/**
+    protected AuthenticationDetailsSource<HttpServletRequest, WebAuthenticationDetails> authenticationDetailsSource = new WebAuthenticationDetailsSource();
+
+    /**
+     * Creates a new SpringSecurityLoginCommand with the provided {@link AuthenticationManager}
+
+
+     /**
      * Creates a new SpringSecurityLoginCommand with the provided {@link AuthenticationManager}
      * 
      * @param authManager the authentication manager

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.flex.security3;
+package org.springframework.flex.security4;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.web.access.intercept.DefaultFilterInvocationSecurityMetadataSource;
-import org.springframework.security.web.util.RequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.util.Assert;
 
 import flex.messaging.FlexContext;
@@ -52,7 +52,7 @@ public class EndpointSecurityMetadataSource implements SecurityMetadataSource {
     private Map<String, Collection<ConfigAttribute>> endpointMap = new LinkedHashMap<String, Collection<ConfigAttribute>>();
 
     /**
-     * @see DefaultFilterInvocationSecurityMetadataSource#DefaultFilterInvocationSecurityMetadataSource(UrlMatcher, LinkedHashMap)
+     * @see DefaultFilterInvocationSecurityMetadataSource#DefaultFilterInvocationSecurityMetadataSource(LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>>)
      */
     public EndpointSecurityMetadataSource(LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>> requestMap) {
     	Assert.notNull(requestMap, "requestMap cannot be null");
@@ -63,7 +63,7 @@ public class EndpointSecurityMetadataSource implements SecurityMetadataSource {
      * Builds the internal request map from the supplied map, and stores the endpoint map for matching by channel id.
      * 
      * @param endpointMap map of &lt;String, Collection&lt;ConfigAttribute&gt;&gt;
-     * @see DefaultFilterInvocationSecurityMetadataSource#DefaultFilterInvocationSecurityMetadataSource(UrlMatcher, LinkedHashMap)
+     * @see DefaultFilterInvocationSecurityMetadataSource#DefaultFilterInvocationSecurityMetadataSource(LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>>)
      */
     public EndpointSecurityMetadataSource(LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>> requestMap,
         HashMap<String, Collection<ConfigAttribute>> endpointMap) {

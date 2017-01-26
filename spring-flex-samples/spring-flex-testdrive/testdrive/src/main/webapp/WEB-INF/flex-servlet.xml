@@ -60,7 +60,7 @@
 	<flex:remoting-destination ref="securedProductService" />
 	
 	<!-- Helper for getting the currently authenticated user -->
-    <bean id="securityHelper" class="org.springframework.flex.samples.secured.Security3Helper">
+    <bean id="securityHelper" class="org.springframework.flex.samples.secured.Security4Helper">
         <flex:remoting-destination/>
     </bean>
 

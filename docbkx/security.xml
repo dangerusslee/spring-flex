@@ -22,14 +22,14 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
                         http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/security 
-                        http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+                        http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
     <http entry-point-ref="entryPoint">
         <anonymous enabled="false"/>
     </http>
     
     <beans:bean id="entryPoint" 
-        class="org.springframework.flex.security3.FlexAuthenticationEntryPoint"/>
+        class="org.springframework.flex.security4.FlexAuthenticationEntryPoint"/>
     
     <authentication-manager>
        <authentication-provider>
@@ -42,7 +42,7 @@
     </authentication-manager>
 
 </beans:beans>]]>
-        </programlisting>
+            </programlisting>
             <para>
                 With a typical Flex application, this approach is preferred to using Spring Security's auto-config setup.  Auto-config sets up a number of 
                 features that typically are not needed with a Flex application.  For instance, auto-config sets up a default <code>intercept-url</code> entry that
