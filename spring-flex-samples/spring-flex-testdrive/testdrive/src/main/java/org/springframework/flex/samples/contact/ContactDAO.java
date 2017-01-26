@@ -24,9 +24,9 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * 
@@ -35,11 +35,11 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
  */
 public class ContactDAO implements IContactDAO {
 
-    private final SimpleJdbcTemplate template;
+    private final JdbcTemplate template;
 
     private final SimpleJdbcInsert insertContact;
 
-    private final ParameterizedRowMapper<Contact> rowMapper = new ParameterizedRowMapper<Contact>() {
+    private final RowMapper<Contact> rowMapper = new RowMapper<Contact>() {
 
         public Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
             Contact contact = new Contact();
@@ -57,7 +57,7 @@ public class ContactDAO implements IContactDAO {
     };
 
     public ContactDAO(DataSource dataSource) {
-        this.template = new SimpleJdbcTemplate(dataSource);
+        this.template = new JdbcTemplate(dataSource);
         this.insertContact = new SimpleJdbcInsert(dataSource).withTableName("CONTACT").usingGeneratedKeyColumns("ID");
     }
 

@@ -29,9 +29,9 @@ import org.springframework.flex.remoting.RemotingDestination;
 import org.springframework.flex.remoting.RemotingExclude;
 import org.springframework.flex.remoting.RemotingInclude;
 import org.springframework.flex.samples.industry.IIndustryDAO;
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,13 +43,13 @@ import org.springframework.stereotype.Service;
 @RemotingDestination(channels = { "my-amf" })
 public class CompanyDAO implements ICompanyDAO {
 
-    private final SimpleJdbcTemplate template;
+    private final JdbcTemplate template;
 
     private final SimpleJdbcInsert insertCompany;
 
     private final IIndustryDAO industryDAO;
 
-    private final ParameterizedRowMapper<Company> rowMapper = new ParameterizedRowMapper<Company>() {
+    private final RowMapper<Company> rowMapper = new RowMapper<Company>() {
 
         public Company mapRow(ResultSet rs, int rowNum) throws SQLException {
             Company company = new Company();
@@ -67,7 +67,7 @@ public class CompanyDAO implements ICompanyDAO {
 
     @Autowired
     public CompanyDAO(DataSource dataSource, IIndustryDAO industryDAO) {
-        this.template = new SimpleJdbcTemplate(dataSource);
+        this.template = new JdbcTemplate(dataSource);
         this.insertCompany = new SimpleJdbcInsert(dataSource).withTableName("COMPANY").usingGeneratedKeyColumns("ID");
         this.industryDAO = industryDAO;
     }

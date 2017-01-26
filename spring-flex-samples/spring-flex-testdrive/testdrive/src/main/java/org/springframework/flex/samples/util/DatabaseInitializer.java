@@ -77,7 +77,7 @@ public class DatabaseInitializer {
     }
 
     public void insertContacts() {
-        int rowCount = this.template.queryForInt("SELECT COUNT(*) FROM CONTACT");
+        int rowCount = this.template.queryForObject("SELECT COUNT(*) FROM CONTACT", Integer.class);
         if (rowCount > 0) {
             System.out.println("Contacts already exist");
             return;
@@ -98,7 +98,7 @@ public class DatabaseInitializer {
     }
 
     public void insertCompanies() {
-        int rowCount = this.template.queryForInt("SELECT COUNT(*) FROM COMPANY");
+        int rowCount = this.template.queryForObject("SELECT COUNT(*) FROM COMPANY",Integer.class);
         if (rowCount > 0) {
             System.out.println("Companies already exist");
             return;
@@ -114,7 +114,7 @@ public class DatabaseInitializer {
     }
 
     public void insertIndustries() {
-        int rowCount = this.template.queryForInt("SELECT COUNT(*) FROM INDUSTRY");
+        int rowCount = this.template.queryForObject("SELECT COUNT(*) FROM INDUSTRY",Integer.class);
         if (rowCount > 0) {
             System.out.println("Industries already exist");
             return;
@@ -130,7 +130,7 @@ public class DatabaseInitializer {
     }
 
     public void insertProducts() {
-        int rowCount = this.template.queryForInt("SELECT COUNT(*) FROM PRODUCT");
+        int rowCount = this.template.queryForObject("SELECT COUNT(*) FROM PRODUCT", Integer.class);
         if (rowCount > 0) {
             System.out.println("Products already exist");
             return;
@@ -287,7 +287,7 @@ public class DatabaseInitializer {
     }
 
     public void insertAccount() {
-        int rowCount = this.template.queryForInt("SELECT COUNT(*) FROM ACCOUNT");
+        int rowCount = this.template.queryForObject("SELECT COUNT(*) FROM ACCOUNT", Integer.class);
         if (rowCount > 0) {
             System.out.println("Accounts already exist");
             return;

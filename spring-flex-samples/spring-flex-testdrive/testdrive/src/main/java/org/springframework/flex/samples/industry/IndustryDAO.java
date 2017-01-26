@@ -26,9 +26,9 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.flex.remoting.RemotingDestination;
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -40,11 +40,11 @@ import org.springframework.stereotype.Service;
 @RemotingDestination(channels = { "my-amf" })
 public class IndustryDAO implements IIndustryDAO {
 
-    private final SimpleJdbcTemplate template;
+    private final JdbcTemplate template;
 
     private final SimpleJdbcInsert insertIndustry;
 
-    private final ParameterizedRowMapper<Industry> rowMapper = new ParameterizedRowMapper<Industry>() {
+    private final RowMapper<Industry> rowMapper = new RowMapper<Industry>() {
 
         public Industry mapRow(ResultSet rs, int rowNum) throws SQLException {
             Industry industry = new Industry();
@@ -64,7 +64,7 @@ public class IndustryDAO implements IIndustryDAO {
 
     @Autowired
     public IndustryDAO(DataSource dataSource) {
-        this.template = new SimpleJdbcTemplate(dataSource);
+        this.template = new JdbcTemplate(dataSource);
         this.insertIndustry = new SimpleJdbcInsert(dataSource).withTableName("INDUSTRY").usingGeneratedKeyColumns("ID");
     }
 
