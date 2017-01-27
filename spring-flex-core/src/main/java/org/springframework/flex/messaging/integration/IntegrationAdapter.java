@@ -31,16 +31,16 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.flex.messaging.SubscribeEvent;
 import org.springframework.flex.messaging.UnsubscribeEvent;
-import org.springframework.integration.Message;
-import org.springframework.integration.MessageChannel;
-import org.springframework.integration.MessageHeaders;
-import org.springframework.integration.core.MessageHandler;
-import org.springframework.integration.core.PollableChannel;
-import org.springframework.integration.core.SubscribableChannel;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.MessageHandler;
+import org.springframework.messaging.PollableChannel;
+import org.springframework.messaging.SubscribableChannel;
 import org.springframework.integration.endpoint.AbstractEndpoint;
 import org.springframework.integration.endpoint.EventDrivenConsumer;
 import org.springframework.integration.endpoint.PollingConsumer;
-import org.springframework.integration.message.GenericMessage;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.util.Assert;
 
@@ -81,7 +81,7 @@ public class IntegrationAdapter extends MessagingAdapter implements MessageHandl
     	filteredHeaders = new ArrayList<String>(FlexHeaders.ignored());
     	filteredHeaders.add(MessageHeaders.ID);
     	filteredHeaders.add(MessageHeaders.TIMESTAMP);
-    	filteredHeaders.add(MessageHeaders.EXPIRATION_DATE);
+    	//filteredHeaders.add(MessageHeaders.EXPIRATION_DATE);
     }
 
     /**
@@ -119,10 +119,10 @@ public class IntegrationAdapter extends MessagingAdapter implements MessageHandl
         flexMessage.setMessageId(headers.containsKey(FlexHeaders.MESSAGE_ID) ? headers.get(FlexHeaders.MESSAGE_ID, String.class) : headers.getId().toString());
         Long timestamp = headers.containsKey(FlexHeaders.TIMESTAMP) ? Long.parseLong(headers.get(FlexHeaders.TIMESTAMP, String.class)) : headers.getTimestamp();
         flexMessage.setTimestamp(timestamp);
-        Long expirationDate = headers.getExpirationDate();
+        /*Long expirationDate = headers.getExpirationDate();
         if (expirationDate != null) {
             flexMessage.setTimeToLive(expirationDate - timestamp);
-        }
+        }*/
         if (headers.containsKey(FlexHeaders.MESSAGE_CLIENT_ID)) {
         	flexMessage.setClientId(headers.get(FlexHeaders.MESSAGE_CLIENT_ID));
         }
