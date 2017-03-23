@@ -18,38 +18,38 @@
 			<build>
 				<plugins>
 					<plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>javadoc-jar</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <breakiterator>true</breakiterator>
-                                    <header>Spring BlazeDS Integration</header>
-                                    <source>1.6</source>
-                                    <quiet>true</quiet>
-                                    <javadocDirectory>${project.basedir}/../javadoc</javadocDirectory>
-                                    <overview>${project.basedir}/../javadoc/overview.html</overview>
-                                    <stylesheetfile>${project.basedir}/../javadoc/spring-javadoc.css</stylesheetfile>
-                                    <!-- copies doc-files subdirectory which contains image resources -->
-                                    <docfilessubdirs>true</docfilessubdirs>
-                                    <links>
-                                        <link>http://static.springframework.org/spring/docs/4.0.x/javadoc-api</link>
-                                        <link>http://static.springsource.org/spring-security/site/docs/4.0.x/apidocs</link>
-                                        <link>http://java.sun.com/javase/6/docs/api</link>
-                                        <link>http://livedocs.adobe.com/blazeds/4/javadoc</link>
-                                    </links>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>javadoc-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<breakiterator>true</breakiterator>
+									<header>Spring BlazeDS Integration</header>
+									<source>1.6</source>
+									<quiet>true</quiet>
+									<javadocDirectory>${project.basedir}/../javadoc</javadocDirectory>
+									<overview>${project.basedir}/../javadoc/overview.html</overview>
+									<stylesheetfile>${project.basedir}/../javadoc/spring-javadoc.css</stylesheetfile>
+									<!-- copies doc-files subdirectory which contains image resources -->
+									<docfilessubdirs>true</docfilessubdirs>
+									<links>
+										<link>http://static.springframework.org/spring/docs/4.0.x/javadoc-api</link>
+										<link>http://static.springsource.org/spring-security/site/docs/4.0.x/apidocs</link>
+										<link>http://java.sun.com/javase/6/docs/api</link>
+										<link>http://livedocs.adobe.com/blazeds/4/javadoc</link>
+									</links>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -96,20 +96,26 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.adobe.blazeds</groupId>
-			<artifactId>blazeds-core</artifactId>
+			<groupId>org.apache.flex.blazeds</groupId>
+			<artifactId>flex-messaging-common</artifactId>
+
 		</dependency>
 		<dependency>
-			<groupId>com.adobe.blazeds</groupId>
-			<artifactId>blazeds-common</artifactId>
+			<groupId>org.apache.flex.blazeds</groupId>
+			<artifactId>flex-messaging-core</artifactId>
+
 		</dependency>
+
 		<dependency>
-			<groupId>com.adobe.blazeds</groupId>
-			<artifactId>blazeds-proxy</artifactId>
+			<groupId>org.apache.flex.blazeds</groupId>
+			<artifactId>flex-messaging-proxy</artifactId>
+
 		</dependency>
+
 		<dependency>
-			<groupId>com.adobe.blazeds</groupId>
-			<artifactId>blazeds-remoting</artifactId>
+			<groupId>org.apache.flex.blazeds</groupId>
+			<artifactId>flex-messaging-remoting</artifactId>
+
 		</dependency>
 		<dependency>
 			<groupId>javax.jms</groupId>
@@ -186,5 +192,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 </project>
